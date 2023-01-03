@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISpan.EStore.SqlDataLayer", "ISpan.EStore.SqlDataLayer\ISpan.EStore.SqlDataLayer.csproj", "{C7B3AB4F-E884-4C2C-9128-1665B6E85565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISpan.EStore.WinApp", "ISpan.EStore.SqlDataLayer\ISpan.EStore.WinApp.csproj", "{C7B3AB4F-E884-4C2C-9128-1665B6E85565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISpan.EStore.WinApp", "ISpan.EStore.WinApp\ISpan.EStore.WinApp.csproj", "{EE4D4455-98BE-4665-A847-27C185F5C78D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISpan.EStore.SqlDataLayer", "ISpan.EStore.WinApp\ISpan.EStore.SqlDataLayer.csproj", "{EE4D4455-98BE-4665-A847-27C185F5C78D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
