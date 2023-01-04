@@ -13,9 +13,9 @@ using ISpan.EStore.WinApp;
 
 namespace ISpan.EStore.SqlDataLayer
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
-        public Form()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -54,7 +54,7 @@ namespace ISpan.EStore.SqlDataLayer
             {
                 using (var command = new SqlCommand("Select*from Categories", conn))
                 {
-                conn.Open();            
+                conn.Open();
                 var reader = command.ExecuteReader();
                 reader.Close();
                 }            
@@ -71,6 +71,34 @@ namespace ISpan.EStore.SqlDataLayer
             }
             var frm = new FormEditCategory(categoryId);
             frm.ShowDialog();
+        }
+
+        private void buttonExcuteScalar_Click(object sender, EventArgs e)
+        {
+            bool isInt = int.TryParse(textBoxCategoryId.Text, out int categoryId);
+            if (isInt == false)
+            {
+                MessageBox.Show("請輸入正確 CategoryId");
+                return;
+            }
+            int countOfProductByCategory = new CategoryRepository().GetProductCount(categoryId);
+            MessageBox.Show(countOfProductByCategory.ToString());
+            
+        }
+
+        private void buttonGetProducts_Click(object sender, EventArgs e)
+        {
+            bool isInt = int.TryParse(textBoxCategoryId.Text, out int value);
+            int? categoryId = isInt?value:(int?)null;
+            string prodName = textBoxPruductName.Text; 
+            var frm = new FormProducts(categoryId, prodName);
+            frm.ShowDialog();
+        }
+
+        private void buttonCreateNews_Click(object sender, EventArgs e)
+        {
+            FormCreateNews formCreateNews = new FormCreateNews();
+            formCreateNews.ShowDialog();
         }
     }
 }
