@@ -28,7 +28,7 @@ namespace ISpan.EStore.SqlDataLayer
 				ModifiedTime = DateTime.Now
 			};
 			int newId = new NewsRepository().Create(news);
-			MessageBox.Show($"紀錄已新增, id={newId}");
+			MessageBox.Show($"紀錄已新增, Id={newId}");
 		}
 	}
 }

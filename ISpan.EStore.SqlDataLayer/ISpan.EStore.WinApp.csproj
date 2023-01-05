@@ -64,6 +64,12 @@
     <Compile Include="FormEditCategory.Designer.cs">
       <DependentUpon>FormEditCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditNews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditNews.Designer.cs">
+      <DependentUpon>FormEditNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditCategory.resx">
       <DependentUpon>FormEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditNews.resx">
+      <DependentUpon>FormEditNews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProducts.resx">
       <DependentUpon>FormProducts.cs</DependentUpon>

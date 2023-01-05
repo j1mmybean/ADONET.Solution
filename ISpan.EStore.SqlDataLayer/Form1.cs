@@ -100,5 +100,39 @@ namespace ISpan.EStore.SqlDataLayer
             FormCreateNews formCreateNews = new FormCreateNews();
             formCreateNews.ShowDialog();
         }
-    }
+
+        private void buttonEditNews_Click(object sender, EventArgs e)
+        {
+			bool isInt = int.TryParse(textBoxNewsId.Text, out int NewsId);
+            if(isInt == false)
+            {
+                MessageBox.Show("請輸入正確Id");
+                return ;
+            }
+			var frm = new FormEditNews(NewsId);
+			frm.ShowDialog();
+
+		}
+
+        private void buttonDeleteNews_Click(object sender, EventArgs e)
+        {
+			bool isInt = int.TryParse(textBoxNewsId.Text, out int newsId);
+			if (isInt == false)
+			{
+				MessageBox.Show("請輸入正確Id");
+				return;
+			}
+			int rowsAffected = new NewsRepository().Delete(newsId);
+			//todo 如果回傳比數是1,表示正確更新一筆
+			if (rowsAffected > 0)
+			{
+				MessageBox.Show("紀錄已刪除");
+			}
+			else
+			{
+				MessageBox.Show("沒有紀錄被刪除，可能紀錄不存在");
+			}
+
+		}
+	}
 }

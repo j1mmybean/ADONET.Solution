@@ -39,11 +39,15 @@
 			this.textBoxPruductName = new System.Windows.Forms.TextBox();
 			this.labelProductName = new System.Windows.Forms.Label();
 			this.buttonCreateNews = new System.Windows.Forms.Button();
+			this.buttonEditNews = new System.Windows.Forms.Button();
+			this.textBoxNewsId = new System.Windows.Forms.TextBox();
+			this.labelNewsId = new System.Windows.Forms.Label();
+			this.buttonDeleteNews = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// buttonGetConnectionString
 			// 
-			this.buttonGetConnectionString.Location = new System.Drawing.Point(68, 55);
+			this.buttonGetConnectionString.Location = new System.Drawing.Point(34, 12);
 			this.buttonGetConnectionString.Name = "buttonGetConnectionString";
 			this.buttonGetConnectionString.Size = new System.Drawing.Size(199, 47);
 			this.buttonGetConnectionString.TabIndex = 0;
@@ -53,7 +57,7 @@
 			// 
 			// buttonGetConnection
 			// 
-			this.buttonGetConnection.Location = new System.Drawing.Point(68, 126);
+			this.buttonGetConnection.Location = new System.Drawing.Point(34, 65);
 			this.buttonGetConnection.Name = "buttonGetConnection";
 			this.buttonGetConnection.Size = new System.Drawing.Size(199, 47);
 			this.buttonGetConnection.TabIndex = 1;
@@ -64,7 +68,7 @@
 			// checkBoxPooling
 			// 
 			this.checkBoxPooling.AutoSize = true;
-			this.checkBoxPooling.Location = new System.Drawing.Point(301, 141);
+			this.checkBoxPooling.Location = new System.Drawing.Point(270, 80);
 			this.checkBoxPooling.Name = "checkBoxPooling";
 			this.checkBoxPooling.Size = new System.Drawing.Size(73, 19);
 			this.checkBoxPooling.TabIndex = 2;
@@ -73,7 +77,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(68, 195);
+			this.button1.Location = new System.Drawing.Point(34, 118);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(199, 47);
 			this.button1.TabIndex = 3;
@@ -84,7 +88,7 @@
 			// labelId
 			// 
 			this.labelId.AutoSize = true;
-			this.labelId.Location = new System.Drawing.Point(298, 211);
+			this.labelId.Location = new System.Drawing.Point(253, 143);
 			this.labelId.Name = "labelId";
 			this.labelId.Size = new System.Drawing.Size(19, 15);
 			this.labelId.TabIndex = 4;
@@ -92,14 +96,14 @@
 			// 
 			// textBoxCategoryId
 			// 
-			this.textBoxCategoryId.Location = new System.Drawing.Point(346, 208);
+			this.textBoxCategoryId.Location = new System.Drawing.Point(301, 140);
 			this.textBoxCategoryId.Name = "textBoxCategoryId";
 			this.textBoxCategoryId.Size = new System.Drawing.Size(140, 25);
 			this.textBoxCategoryId.TabIndex = 5;
 			// 
 			// buttonExcuteScalar
 			// 
-			this.buttonExcuteScalar.Location = new System.Drawing.Point(68, 273);
+			this.buttonExcuteScalar.Location = new System.Drawing.Point(34, 171);
 			this.buttonExcuteScalar.Name = "buttonExcuteScalar";
 			this.buttonExcuteScalar.Size = new System.Drawing.Size(199, 47);
 			this.buttonExcuteScalar.TabIndex = 6;
@@ -109,7 +113,7 @@
 			// 
 			// buttonGetProducts
 			// 
-			this.buttonGetProducts.Location = new System.Drawing.Point(68, 336);
+			this.buttonGetProducts.Location = new System.Drawing.Point(34, 224);
 			this.buttonGetProducts.Name = "buttonGetProducts";
 			this.buttonGetProducts.Size = new System.Drawing.Size(199, 47);
 			this.buttonGetProducts.TabIndex = 7;
@@ -119,7 +123,7 @@
 			// 
 			// textBoxPruductName
 			// 
-			this.textBoxPruductName.Location = new System.Drawing.Point(432, 280);
+			this.textBoxPruductName.Location = new System.Drawing.Point(381, 237);
 			this.textBoxPruductName.Name = "textBoxPruductName";
 			this.textBoxPruductName.Size = new System.Drawing.Size(140, 25);
 			this.textBoxPruductName.TabIndex = 8;
@@ -127,7 +131,7 @@
 			// labelProductName
 			// 
 			this.labelProductName.AutoSize = true;
-			this.labelProductName.Location = new System.Drawing.Point(298, 283);
+			this.labelProductName.Location = new System.Drawing.Point(247, 240);
 			this.labelProductName.Name = "labelProductName";
 			this.labelProductName.Size = new System.Drawing.Size(88, 15);
 			this.labelProductName.TabIndex = 9;
@@ -135,7 +139,7 @@
 			// 
 			// buttonCreateNews
 			// 
-			this.buttonCreateNews.Location = new System.Drawing.Point(68, 425);
+			this.buttonCreateNews.Location = new System.Drawing.Point(34, 277);
 			this.buttonCreateNews.Name = "buttonCreateNews";
 			this.buttonCreateNews.Size = new System.Drawing.Size(199, 47);
 			this.buttonCreateNews.TabIndex = 10;
@@ -143,13 +147,53 @@
 			this.buttonCreateNews.UseVisualStyleBackColor = true;
 			this.buttonCreateNews.Click += new System.EventHandler(this.buttonCreateNews_Click);
 			// 
+			// buttonEditNews
+			// 
+			this.buttonEditNews.Location = new System.Drawing.Point(34, 330);
+			this.buttonEditNews.Name = "buttonEditNews";
+			this.buttonEditNews.Size = new System.Drawing.Size(90, 47);
+			this.buttonEditNews.TabIndex = 11;
+			this.buttonEditNews.Text = "編輯News";
+			this.buttonEditNews.UseVisualStyleBackColor = true;
+			this.buttonEditNews.Click += new System.EventHandler(this.buttonEditNews_Click);
+			// 
+			// textBoxNewsId
+			// 
+			this.textBoxNewsId.Location = new System.Drawing.Point(114, 394);
+			this.textBoxNewsId.Name = "textBoxNewsId";
+			this.textBoxNewsId.Size = new System.Drawing.Size(140, 25);
+			this.textBoxNewsId.TabIndex = 8;
+			// 
+			// labelNewsId
+			// 
+			this.labelNewsId.AutoSize = true;
+			this.labelNewsId.Location = new System.Drawing.Point(36, 397);
+			this.labelNewsId.Name = "labelNewsId";
+			this.labelNewsId.Size = new System.Drawing.Size(62, 15);
+			this.labelNewsId.TabIndex = 9;
+			this.labelNewsId.Text = "News Id :";
+			// 
+			// buttonDeleteNews
+			// 
+			this.buttonDeleteNews.Location = new System.Drawing.Point(143, 330);
+			this.buttonDeleteNews.Name = "buttonDeleteNews";
+			this.buttonDeleteNews.Size = new System.Drawing.Size(90, 47);
+			this.buttonDeleteNews.TabIndex = 12;
+			this.buttonDeleteNews.Text = "刪除News";
+			this.buttonDeleteNews.UseVisualStyleBackColor = true;
+			this.buttonDeleteNews.Click += new System.EventHandler(this.buttonDeleteNews_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 522);
+			this.ClientSize = new System.Drawing.Size(800, 588);
+			this.Controls.Add(this.buttonDeleteNews);
+			this.Controls.Add(this.buttonEditNews);
 			this.Controls.Add(this.buttonCreateNews);
+			this.Controls.Add(this.labelNewsId);
 			this.Controls.Add(this.labelProductName);
+			this.Controls.Add(this.textBoxNewsId);
 			this.Controls.Add(this.textBoxPruductName);
 			this.Controls.Add(this.buttonGetProducts);
 			this.Controls.Add(this.buttonExcuteScalar);
@@ -179,6 +223,10 @@
 		private System.Windows.Forms.TextBox textBoxPruductName;
 		private System.Windows.Forms.Label labelProductName;
 		private System.Windows.Forms.Button buttonCreateNews;
+		private System.Windows.Forms.Button buttonEditNews;
+		private System.Windows.Forms.TextBox textBoxNewsId;
+		private System.Windows.Forms.Label labelNewsId;
+		private System.Windows.Forms.Button buttonDeleteNews;
 	}
 }
 

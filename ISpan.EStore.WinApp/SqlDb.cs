@@ -32,14 +32,49 @@ namespace ISpan.EStore.WinApp
 
             return sb.ToString();
         }
-        
-        public static SqlConnection GetConnection(string keyOfConnString = "default")
+
+		public static SqlConnection GetConnection() { return GetConnection("default"); }
+
+		public static SqlConnection GetConnection(string keyOfConnString = "default")
         {
             string connStr = GetConnectionString(keyOfConnString);
             return new SqlConnection(connStr); //建立一個SqlConnection物件並回傳
         }
-    }
-    public static class sqlDataReaderExtension
+        public static int UpdateOrDelete(Func<SqlConnection> funcConnection, string sql, params SqlParameter[] parameters)
+        {
+            using (var conn = funcConnection())
+            {
+                conn.Open();
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    return cmd.ExecuteNonQuery();//傳回被異動的筆數
+                }
+            }
+
+        }
+
+        public static int Create(Func<SqlConnection> funcConnection, string sql, params SqlParameter[] parameters)
+        {
+            sql += ";select scope_identity();";
+
+			using (var conn = funcConnection())
+			{
+				using (var cmd = conn.CreateCommand())
+				{
+					conn.Open();
+					cmd.CommandText = sql;
+					if (parameters != null) cmd.Parameters.AddRange(parameters);
+
+					return Convert.ToInt32(cmd.ExecuteScalar());
+				}
+			}
+
+		}
+
+	}
+
+	public static class sqlDataReaderExtension
     {
         public static T GetFieldValue<T>(this SqlDataReader source, string columnName)
             => source[columnName].Equals(DBNull.Value)

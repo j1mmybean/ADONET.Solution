@@ -21,6 +21,8 @@ inner join Categories as C on P.categoryId = c.Id";
 
 			string where = string.Empty;
 
+			var parameters = new List<SqlParameter>();
+
 			if (categoryId.HasValue)
 			{
 				//前面要加空白,才不會跟上面黏在一起,sql會錯
@@ -29,7 +31,9 @@ inner join Categories as C on P.categoryId = c.Id";
 			if (string.IsNullOrEmpty(productName) == false)
 				{
 					//前面要加空白,才不會跟上面黏在一起,sql會錯
-					where += $" And P.Name like '%{productName}%'";
+					where += $" And P.Name like '%' + @productName + '%'";
+					parameters.Add(new SqlParameter("@productName", System.Data.SqlDbType.NVarChar, 50) { Value = productName });
+
 				}
 			where = where == string.Empty ? where : where = " where " + where.Substring(5);
 			sql += where;
@@ -43,6 +47,8 @@ inner join Categories as C on P.categoryId = c.Id";
 				{
 					conn.Open();
 					cmd.CommandText = sql;
+					cmd.Parameters.AddRange(parameters.ToArray());
+
 					var reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
 					//List<ProductDto> items = new List<ProductDto>();
