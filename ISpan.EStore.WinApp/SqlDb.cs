@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -69,7 +71,49 @@ namespace ISpan.EStore.WinApp
 					return Convert.ToInt32(cmd.ExecuteScalar());
 				}
 			}
+		}
+        public static T Get<T>(Func<SqlConnection> funcConnection, Func<SqlDataReader, T> funcAssembler, string sql, params SqlParameter[] parameters)
+        {
+            using (var conn = funcConnection())
+            {
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
 
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    var reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    return reader.Read()
+                    ? funcAssembler(reader)
+                    : default(T);
+                }
+            }
+        }
+
+		public static IEnumerable<T> Search<T>(Func<SqlConnection> funcConnection, Func<SqlDataReader, T> funcAssembler, string sql, params SqlParameter[] parameters)
+		{
+			SqlDb.ApplicationName = "demo:search products";//方便sql profiler查看
+
+			using (var conn = funcConnection())
+			{
+				using (var cmd = conn.CreateCommand())
+				{
+					conn.Open();
+                    cmd.CommandText = sql;
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+
+					var reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+
+					//List<ProductDto> items = new List<ProductDto>();
+
+					while (reader.Read())
+					{
+						yield return funcAssembler(reader);
+						//items.Add(dto);
+					}
+					//return items
+				}
+			}
 		}
 
 	}

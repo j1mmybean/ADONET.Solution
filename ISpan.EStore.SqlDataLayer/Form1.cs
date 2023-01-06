@@ -134,5 +134,11 @@ namespace ISpan.EStore.SqlDataLayer
 			}
 
 		}
-	}
+
+        private void buttonMaintainUsers_Click(object sender, EventArgs e)
+        {
+            FormUsers formUsers = new FormUsers();
+            formUsers.ShowDialog();
+        }
+    }
 }

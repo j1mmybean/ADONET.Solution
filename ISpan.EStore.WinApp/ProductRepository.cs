@@ -41,27 +41,28 @@ inner join Categories as C on P.categoryId = c.Id";
 			//前面要加空白,才不會跟上面黏在一起,sql會錯
 			sql += " Order by c.DisplayOrder";
 			#endregion
-			using (var conn = SqlDb.GetConnection())
-			{
-				using (var cmd = conn.CreateCommand())
-				{
-					conn.Open();
-					cmd.CommandText = sql;
-					cmd.Parameters.AddRange(parameters.ToArray());
+			return SqlDb.Search(SqlDb.GetConnection, ProductDto.GetInstance, sql, parameters.ToArray());
+			//using (var conn = SqlDb.GetConnection())
+			//{
+			//	using (var cmd = conn.CreateCommand())
+			//	{
+			//		conn.Open();
+			//		cmd.CommandText = sql;
+			//		cmd.Parameters.AddRange(parameters.ToArray());
 
-					var reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+			//		var reader = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
-					//List<ProductDto> items = new List<ProductDto>();
+			//		//List<ProductDto> items = new List<ProductDto>();
 
-					while (reader.Read())
-					{
-						var dto = ProductDto.GetInstance(reader);
-						yield return dto;
-						//items.Add(dto);
-					}
-					//return items
-				}
-			}
+			//		while (reader.Read())
+			//		{
+			//			var dto = ProductDto.GetInstance(reader);
+			//			yield return dto;
+			//			//items.Add(dto);
+			//		}
+			//		//return items
+			//	}
+			//}
 		}
 
 	}

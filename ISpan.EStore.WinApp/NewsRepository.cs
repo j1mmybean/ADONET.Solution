@@ -55,18 +55,19 @@ values
 		public News GetNews(int newsId)
 		{
 			var sql = $"select * from News where Id = {newsId}";
+			return SqlDb.Get(SqlDb.GetConnection, News.GetInstance, sql);
 
-			using (var conn = SqlDb.GetConnection())
-			{
-				using (var cmd = new SqlCommand(sql, conn))
-				{
-					conn.Open();
-					var reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-					return reader.Read()
-					?News.GetInstance(reader)
-					: null;
-				}
-			}
+			//using (var conn = SqlDb.GetConnection())
+			//{
+			//	using (var cmd = new SqlCommand(sql, conn))
+			//	{
+			//		conn.Open();
+			//		var reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+			//		return reader.Read()
+			//		?News.GetInstance(reader)
+			//		: null;
+			//	}
+			//}
 		}
 
 		public int Update(News entity)

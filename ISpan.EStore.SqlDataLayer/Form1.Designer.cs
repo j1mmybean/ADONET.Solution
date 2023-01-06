@@ -43,6 +43,7 @@
 			this.textBoxNewsId = new System.Windows.Forms.TextBox();
 			this.labelNewsId = new System.Windows.Forms.Label();
 			this.buttonDeleteNews = new System.Windows.Forms.Button();
+			this.buttonMaintainUsers = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// buttonGetConnectionString
@@ -183,11 +184,22 @@
 			this.buttonDeleteNews.UseVisualStyleBackColor = true;
 			this.buttonDeleteNews.Click += new System.EventHandler(this.buttonDeleteNews_Click);
 			// 
+			// buttonMaintainUsers
+			// 
+			this.buttonMaintainUsers.Location = new System.Drawing.Point(34, 436);
+			this.buttonMaintainUsers.Name = "buttonMaintainUsers";
+			this.buttonMaintainUsers.Size = new System.Drawing.Size(199, 47);
+			this.buttonMaintainUsers.TabIndex = 13;
+			this.buttonMaintainUsers.Text = "MaintainUsers";
+			this.buttonMaintainUsers.UseVisualStyleBackColor = true;
+			this.buttonMaintainUsers.Click += new System.EventHandler(this.buttonMaintainUsers_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 588);
+			this.Controls.Add(this.buttonMaintainUsers);
 			this.Controls.Add(this.buttonDeleteNews);
 			this.Controls.Add(this.buttonEditNews);
 			this.Controls.Add(this.buttonCreateNews);
@@ -227,6 +239,7 @@
 		private System.Windows.Forms.TextBox textBoxNewsId;
 		private System.Windows.Forms.Label labelNewsId;
 		private System.Windows.Forms.Button buttonDeleteNews;
+		private System.Windows.Forms.Button buttonMaintainUsers;
 	}
 }
 
