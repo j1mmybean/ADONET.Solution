@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ISpan.EStore.SqlDataLayer;
+using ISpan.EStore.SqlDataLayer.Categories;
+using ISpan.EStore.SqlDataLayer.News;
 using ISpan.EStore.WinApp;
 
 namespace ISpan.EStore.SqlDataLayer
@@ -88,7 +90,7 @@ namespace ISpan.EStore.SqlDataLayer
 
         private void buttonGetProducts_Click(object sender, EventArgs e)
         {
-            bool isInt = int.TryParse(textBoxCategoryId.Text, out int value);
+            bool isInt = int.TryParse(textBoxProductCategoryId.Text, out int value);
             int? categoryId = isInt?value:(int?)null;
             string prodName = textBoxPruductName.Text; 
             var frm = new FormProducts(categoryId, prodName);
@@ -132,7 +134,6 @@ namespace ISpan.EStore.SqlDataLayer
 			{
 				MessageBox.Show("沒有紀錄被刪除，可能紀錄不存在");
 			}
-
 		}
 
         private void buttonMaintainUsers_Click(object sender, EventArgs e)
@@ -140,5 +141,17 @@ namespace ISpan.EStore.SqlDataLayer
             FormUsers formUsers = new FormUsers();
             formUsers.ShowDialog();
         }
-    }
+
+		private void buttonEditCategory_Click(object sender, EventArgs e)
+		{
+			FormCategory formCategory = new FormCategory();
+			formCategory.ShowDialog();
+		}
+
+		private void buttonNews_Click(object sender, EventArgs e)
+		{
+			FormNews formNews = new FormNews();
+			formNews.ShowDialog();
+		}
+	}
 }

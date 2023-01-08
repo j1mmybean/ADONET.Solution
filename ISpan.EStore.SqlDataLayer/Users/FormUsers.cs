@@ -11,10 +11,6 @@ using System.Windows.Forms;
 
 namespace ISpan.EStore.SqlDataLayer
 {
-	public interface IGridContainer
-	{
-		void Display();
-	}
 	public partial class FormUsers : Form, IGridContainer
 	{
 		private UserRepository repo;

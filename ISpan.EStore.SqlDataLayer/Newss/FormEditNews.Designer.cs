@@ -35,6 +35,7 @@
 			this.buttonUpdate = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.labelModifiedTime = new System.Windows.Forms.Label();
+			this.buttonDelete = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// labelTitle
@@ -72,9 +73,9 @@
 			// 
 			// buttonUpdate
 			// 
-			this.buttonUpdate.Location = new System.Drawing.Point(577, 354);
+			this.buttonUpdate.Location = new System.Drawing.Point(566, 348);
 			this.buttonUpdate.Name = "buttonUpdate";
-			this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
+			this.buttonUpdate.Size = new System.Drawing.Size(86, 34);
 			this.buttonUpdate.TabIndex = 4;
 			this.buttonUpdate.Text = "Update";
 			this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -98,11 +99,22 @@
 			this.labelModifiedTime.TabIndex = 1;
 			this.labelModifiedTime.Text = "labelModifiedTime";
 			// 
+			// buttonDelete
+			// 
+			this.buttonDelete.Location = new System.Drawing.Point(462, 348);
+			this.buttonDelete.Name = "buttonDelete";
+			this.buttonDelete.Size = new System.Drawing.Size(86, 34);
+			this.buttonDelete.TabIndex = 5;
+			this.buttonDelete.Text = "Delete";
+			this.buttonDelete.UseVisualStyleBackColor = true;
+			this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+			// 
 			// FormEditNews
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.buttonDelete);
 			this.Controls.Add(this.buttonUpdate);
 			this.Controls.Add(this.textBoxDescription);
 			this.Controls.Add(this.textBoxTitle);
@@ -127,5 +139,6 @@
 		private System.Windows.Forms.Button buttonUpdate;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label labelModifiedTime;
+		private System.Windows.Forms.Button buttonDelete;
 	}
 }

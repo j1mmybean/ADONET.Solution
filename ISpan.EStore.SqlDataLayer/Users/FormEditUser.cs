@@ -69,12 +69,16 @@ namespace ISpan.EStore.SqlDataLayer
 			if (container != null) container.Display();
 
 			this.DialogResult = DialogResult.OK;
-
 		}
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
+			new UserRepository().Delete(GetModel().Id);
 
+			IGridContainer container = this.Owner as IGridContainer;
+			if (container != null) container.Display();
+
+			this.DialogResult = DialogResult.OK;
 		}
 	}
 }

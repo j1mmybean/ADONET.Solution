@@ -32,7 +32,7 @@
 			this.buttonGetConnection = new System.Windows.Forms.Button();
 			this.checkBoxPooling = new System.Windows.Forms.CheckBox();
 			this.button1 = new System.Windows.Forms.Button();
-			this.labelId = new System.Windows.Forms.Label();
+			this.labelCategoryId = new System.Windows.Forms.Label();
 			this.textBoxCategoryId = new System.Windows.Forms.TextBox();
 			this.buttonExcuteScalar = new System.Windows.Forms.Button();
 			this.buttonGetProducts = new System.Windows.Forms.Button();
@@ -44,6 +44,16 @@
 			this.labelNewsId = new System.Windows.Forms.Label();
 			this.buttonDeleteNews = new System.Windows.Forms.Button();
 			this.buttonMaintainUsers = new System.Windows.Forms.Button();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.textBoxProductCategoryId = new System.Windows.Forms.TextBox();
+			this.labelProductId = new System.Windows.Forms.Label();
+			this.buttonEditCategory = new System.Windows.Forms.Button();
+			this.buttonNews = new System.Windows.Forms.Button();
+			this.groupBox1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// buttonGetConnectionString
@@ -69,7 +79,7 @@
 			// checkBoxPooling
 			// 
 			this.checkBoxPooling.AutoSize = true;
-			this.checkBoxPooling.Location = new System.Drawing.Point(270, 80);
+			this.checkBoxPooling.Location = new System.Drawing.Point(239, 80);
 			this.checkBoxPooling.Name = "checkBoxPooling";
 			this.checkBoxPooling.Size = new System.Drawing.Size(73, 19);
 			this.checkBoxPooling.TabIndex = 2;
@@ -78,7 +88,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(34, 118);
+			this.button1.Location = new System.Drawing.Point(6, 24);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(199, 47);
 			this.button1.TabIndex = 3;
@@ -86,25 +96,25 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// labelId
+			// labelCategoryId
 			// 
-			this.labelId.AutoSize = true;
-			this.labelId.Location = new System.Drawing.Point(253, 143);
-			this.labelId.Name = "labelId";
-			this.labelId.Size = new System.Drawing.Size(19, 15);
-			this.labelId.TabIndex = 4;
-			this.labelId.Text = "Id";
+			this.labelCategoryId.AutoSize = true;
+			this.labelCategoryId.Location = new System.Drawing.Point(17, 133);
+			this.labelCategoryId.Name = "labelCategoryId";
+			this.labelCategoryId.Size = new System.Drawing.Size(19, 15);
+			this.labelCategoryId.TabIndex = 4;
+			this.labelCategoryId.Text = "Id";
 			// 
 			// textBoxCategoryId
 			// 
-			this.textBoxCategoryId.Location = new System.Drawing.Point(301, 140);
+			this.textBoxCategoryId.Location = new System.Drawing.Point(65, 130);
 			this.textBoxCategoryId.Name = "textBoxCategoryId";
 			this.textBoxCategoryId.Size = new System.Drawing.Size(140, 25);
 			this.textBoxCategoryId.TabIndex = 5;
 			// 
 			// buttonExcuteScalar
 			// 
-			this.buttonExcuteScalar.Location = new System.Drawing.Point(34, 171);
+			this.buttonExcuteScalar.Location = new System.Drawing.Point(6, 77);
 			this.buttonExcuteScalar.Name = "buttonExcuteScalar";
 			this.buttonExcuteScalar.Size = new System.Drawing.Size(199, 47);
 			this.buttonExcuteScalar.TabIndex = 6;
@@ -114,7 +124,7 @@
 			// 
 			// buttonGetProducts
 			// 
-			this.buttonGetProducts.Location = new System.Drawing.Point(34, 224);
+			this.buttonGetProducts.Location = new System.Drawing.Point(40, 24);
 			this.buttonGetProducts.Name = "buttonGetProducts";
 			this.buttonGetProducts.Size = new System.Drawing.Size(199, 47);
 			this.buttonGetProducts.TabIndex = 7;
@@ -124,7 +134,7 @@
 			// 
 			// textBoxPruductName
 			// 
-			this.textBoxPruductName.Location = new System.Drawing.Point(381, 237);
+			this.textBoxPruductName.Location = new System.Drawing.Point(114, 125);
 			this.textBoxPruductName.Name = "textBoxPruductName";
 			this.textBoxPruductName.Size = new System.Drawing.Size(140, 25);
 			this.textBoxPruductName.TabIndex = 8;
@@ -132,7 +142,7 @@
 			// labelProductName
 			// 
 			this.labelProductName.AutoSize = true;
-			this.labelProductName.Location = new System.Drawing.Point(247, 240);
+			this.labelProductName.Location = new System.Drawing.Point(20, 128);
 			this.labelProductName.Name = "labelProductName";
 			this.labelProductName.Size = new System.Drawing.Size(88, 15);
 			this.labelProductName.TabIndex = 9;
@@ -140,7 +150,7 @@
 			// 
 			// buttonCreateNews
 			// 
-			this.buttonCreateNews.Location = new System.Drawing.Point(34, 277);
+			this.buttonCreateNews.Location = new System.Drawing.Point(18, 24);
 			this.buttonCreateNews.Name = "buttonCreateNews";
 			this.buttonCreateNews.Size = new System.Drawing.Size(199, 47);
 			this.buttonCreateNews.TabIndex = 10;
@@ -150,7 +160,7 @@
 			// 
 			// buttonEditNews
 			// 
-			this.buttonEditNews.Location = new System.Drawing.Point(34, 330);
+			this.buttonEditNews.Location = new System.Drawing.Point(18, 77);
 			this.buttonEditNews.Name = "buttonEditNews";
 			this.buttonEditNews.Size = new System.Drawing.Size(90, 47);
 			this.buttonEditNews.TabIndex = 11;
@@ -160,7 +170,7 @@
 			// 
 			// textBoxNewsId
 			// 
-			this.textBoxNewsId.Location = new System.Drawing.Point(114, 394);
+			this.textBoxNewsId.Location = new System.Drawing.Point(98, 141);
 			this.textBoxNewsId.Name = "textBoxNewsId";
 			this.textBoxNewsId.Size = new System.Drawing.Size(140, 25);
 			this.textBoxNewsId.TabIndex = 8;
@@ -168,7 +178,7 @@
 			// labelNewsId
 			// 
 			this.labelNewsId.AutoSize = true;
-			this.labelNewsId.Location = new System.Drawing.Point(36, 397);
+			this.labelNewsId.Location = new System.Drawing.Point(20, 144);
 			this.labelNewsId.Name = "labelNewsId";
 			this.labelNewsId.Size = new System.Drawing.Size(62, 15);
 			this.labelNewsId.TabIndex = 9;
@@ -176,7 +186,7 @@
 			// 
 			// buttonDeleteNews
 			// 
-			this.buttonDeleteNews.Location = new System.Drawing.Point(143, 330);
+			this.buttonDeleteNews.Location = new System.Drawing.Point(127, 77);
 			this.buttonDeleteNews.Name = "buttonDeleteNews";
 			this.buttonDeleteNews.Size = new System.Drawing.Size(90, 47);
 			this.buttonDeleteNews.TabIndex = 12;
@@ -186,7 +196,7 @@
 			// 
 			// buttonMaintainUsers
 			// 
-			this.buttonMaintainUsers.Location = new System.Drawing.Point(34, 436);
+			this.buttonMaintainUsers.Location = new System.Drawing.Point(57, 488);
 			this.buttonMaintainUsers.Name = "buttonMaintainUsers";
 			this.buttonMaintainUsers.Size = new System.Drawing.Size(199, 47);
 			this.buttonMaintainUsers.TabIndex = 13;
@@ -194,29 +204,105 @@
 			this.buttonMaintainUsers.UseVisualStyleBackColor = true;
 			this.buttonMaintainUsers.Click += new System.EventHandler(this.buttonMaintainUsers_Click);
 			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.buttonNews);
+			this.groupBox1.Controls.Add(this.buttonCreateNews);
+			this.groupBox1.Controls.Add(this.textBoxNewsId);
+			this.groupBox1.Controls.Add(this.buttonDeleteNews);
+			this.groupBox1.Controls.Add(this.labelNewsId);
+			this.groupBox1.Controls.Add(this.buttonEditNews);
+			this.groupBox1.Location = new System.Drawing.Point(34, 178);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(260, 246);
+			this.groupBox1.TabIndex = 14;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "News";
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.buttonEditCategory);
+			this.groupBox2.Controls.Add(this.button1);
+			this.groupBox2.Controls.Add(this.buttonExcuteScalar);
+			this.groupBox2.Controls.Add(this.textBoxCategoryId);
+			this.groupBox2.Controls.Add(this.labelCategoryId);
+			this.groupBox2.Location = new System.Drawing.Point(402, 33);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(329, 246);
+			this.groupBox2.TabIndex = 15;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Category";
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.buttonGetProducts);
+			this.groupBox3.Controls.Add(this.textBoxPruductName);
+			this.groupBox3.Controls.Add(this.textBoxProductCategoryId);
+			this.groupBox3.Controls.Add(this.labelProductId);
+			this.groupBox3.Controls.Add(this.labelProductName);
+			this.groupBox3.Location = new System.Drawing.Point(408, 319);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(285, 216);
+			this.groupBox3.TabIndex = 16;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Product";
+			// 
+			// textBoxProductCategoryId
+			// 
+			this.textBoxProductCategoryId.Location = new System.Drawing.Point(114, 80);
+			this.textBoxProductCategoryId.Name = "textBoxProductCategoryId";
+			this.textBoxProductCategoryId.Size = new System.Drawing.Size(140, 25);
+			this.textBoxProductCategoryId.TabIndex = 5;
+			// 
+			// labelProductId
+			// 
+			this.labelProductId.AutoSize = true;
+			this.labelProductId.Location = new System.Drawing.Point(51, 80);
+			this.labelProductId.Name = "labelProductId";
+			this.labelProductId.Size = new System.Drawing.Size(19, 15);
+			this.labelProductId.TabIndex = 4;
+			this.labelProductId.Text = "Id";
+			// 
+			// buttonEditCategory
+			// 
+			this.buttonEditCategory.Location = new System.Drawing.Point(6, 169);
+			this.buttonEditCategory.Name = "buttonEditCategory";
+			this.buttonEditCategory.Size = new System.Drawing.Size(199, 47);
+			this.buttonEditCategory.TabIndex = 7;
+			this.buttonEditCategory.Text = "EditCategory";
+			this.buttonEditCategory.UseVisualStyleBackColor = true;
+			this.buttonEditCategory.Click += new System.EventHandler(this.buttonEditCategory_Click);
+			// 
+			// buttonNews
+			// 
+			this.buttonNews.Location = new System.Drawing.Point(18, 189);
+			this.buttonNews.Name = "buttonNews";
+			this.buttonNews.Size = new System.Drawing.Size(199, 47);
+			this.buttonNews.TabIndex = 13;
+			this.buttonNews.Text = "Edit News";
+			this.buttonNews.UseVisualStyleBackColor = true;
+			this.buttonNews.Click += new System.EventHandler(this.buttonNews_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 588);
+			this.Controls.Add(this.groupBox3);
+			this.Controls.Add(this.groupBox2);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.buttonMaintainUsers);
-			this.Controls.Add(this.buttonDeleteNews);
-			this.Controls.Add(this.buttonEditNews);
-			this.Controls.Add(this.buttonCreateNews);
-			this.Controls.Add(this.labelNewsId);
-			this.Controls.Add(this.labelProductName);
-			this.Controls.Add(this.textBoxNewsId);
-			this.Controls.Add(this.textBoxPruductName);
-			this.Controls.Add(this.buttonGetProducts);
-			this.Controls.Add(this.buttonExcuteScalar);
-			this.Controls.Add(this.textBoxCategoryId);
-			this.Controls.Add(this.labelId);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.checkBoxPooling);
 			this.Controls.Add(this.buttonGetConnection);
 			this.Controls.Add(this.buttonGetConnectionString);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			this.groupBox3.ResumeLayout(false);
+			this.groupBox3.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -228,7 +314,7 @@
         private System.Windows.Forms.Button buttonGetConnection;
         private System.Windows.Forms.CheckBox checkBoxPooling;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label labelId;
+        private System.Windows.Forms.Label labelCategoryId;
         private System.Windows.Forms.TextBox textBoxCategoryId;
         private System.Windows.Forms.Button buttonExcuteScalar;
         private System.Windows.Forms.Button buttonGetProducts;
@@ -240,6 +326,13 @@
 		private System.Windows.Forms.Label labelNewsId;
 		private System.Windows.Forms.Button buttonDeleteNews;
 		private System.Windows.Forms.Button buttonMaintainUsers;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.TextBox textBoxProductCategoryId;
+		private System.Windows.Forms.Label labelProductId;
+		private System.Windows.Forms.Button buttonEditCategory;
+		private System.Windows.Forms.Button buttonNews;
 	}
 }
 

@@ -10,7 +10,11 @@ namespace ISpan.EStore.WinApp
 {
 	public class NewsRepository
 	{
-		public int Create(News entity)
+		private readonly string _tableName = "News";
+		public Func<SqlConnection> funcConn = SqlDb.GetConnection;
+		public Func<SqlDataReader, NewsInfo> funcAssembler = NewsInfo.GetInstance;
+
+		public int Create(NewsInfo news)
 		{
 			string sql = @"
 insert into News
@@ -19,19 +23,19 @@ values
 (@Title, @Description, @CreatedTime, @ModifiedTime)";
 			//SqlParameter[] parameters = new SqlParameter[]
 			//{
-			//	new SqlParameter("@Title", System.Data.SqlDbType.NVarChar, 50){Value = entity.Title},
-			//	new SqlParameter("@Description", System.Data.SqlDbType.NVarChar, 3000){Value = entity.Description},
-			//	new SqlParameter("@CreatedTime", System.Data.SqlDbType.DateTime){Value = entity.CreatedTime},
-			//	new SqlParameter("@ModifiedTime", System.Data.SqlDbType.DateTime){Value = entity.ModifiedTime},
+			//	new SqlParameter("@Title", System.Data.SqlDbType.NVarChar, 50){Value = news.Title},
+			//	new SqlParameter("@Description", System.Data.SqlDbType.NVarChar, 3000){Value = news.Description},
+			//	new SqlParameter("@CreatedTime", System.Data.SqlDbType.DateTime){Value = news.CreatedTime},
+			//	new SqlParameter("@ModifiedTime", System.Data.SqlDbType.DateTime){Value = news.ModifiedTime},
 
 			//	new SqlParameter("@newId", System.Data.SqlDbType.Int){Direction = System.Data.ParameterDirection.Output},
 			//};
 
 			var parameters = SqlParameterBuilder.Create()
-				.AddNVarchar("@Title", entity.Title, 50)
-				.AddNVarchar("@Description", entity.Description, 3000)
-				.AddDateTime("@CreatedTime", entity.CreatedTime)
-				.AddDateTime("@ModifiedTime", entity.ModifiedTime)
+				.AddNVarchar("@Title", news.Title, 50)
+				.AddNVarchar("@Description", news.Description, 3000)
+				.AddDateTime("@CreatedTime", news.CreatedTime)
+				.AddDateTime("@ModifiedTime", news.ModifiedTime)
 				//.AddInt("@newId", null, System.Data.ParameterDirection.Output )
 				.Build();
 
@@ -52,10 +56,10 @@ values
 			//}
 		}
 
-		public News GetNews(int newsId)
+		public NewsInfo GetNews(int newsId)
 		{
 			var sql = $"select * from News where Id = {newsId}";
-			return SqlDb.Get(SqlDb.GetConnection, News.GetInstance, sql);
+			return SqlDb.Get(SqlDb.GetConnection, NewsInfo.GetInstance, sql);
 
 			//using (var conn = SqlDb.GetConnection())
 			//{
@@ -64,13 +68,13 @@ values
 			//		conn.Open();
 			//		var reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 			//		return reader.Read()
-			//		?News.GetInstance(reader)
+			//		?NewsInfo.GetInstance(reader)
 			//		: null;
 			//	}
 			//}
 		}
 
-		public int Update(News entity)
+		public int Update(NewsInfo news)
 		{
 			//在此不更新CreateTime
 			string sql = @"update News set
@@ -79,10 +83,10 @@ Description = @Description,
 ModifiedTime = @ModifiedTime
 where Id = @Id";
 			var parameters = SqlParameterBuilder.Create()
-				.AddNVarchar("@Title", entity.Title, 50)
-				.AddNVarchar("@Description", entity.Description, 3000)
-				.AddDateTime("@ModifiedTime", entity.ModifiedTime)
-				.AddInt("@Id", entity.Id)
+				.AddNVarchar("@Title", news.Title, 50)
+				.AddNVarchar("@Description", news.Description, 3000)
+				.AddDateTime("@ModifiedTime", news.ModifiedTime)
+				.AddInt("@Id", news.Id)
 				.Build();
 			return SqlDb.UpdateOrDelete(SqlDb.GetConnection, sql, parameters);
 
@@ -95,7 +99,6 @@ where Id = @Id";
 			//		return cmd.ExecuteNonQuery();//傳回被異動的筆數,若為零表示沒有異動
 			//	}
 			//}
-
 		}
 		public int Delete(int newsId)
 		{
@@ -116,10 +119,36 @@ where Id = @Id";
 			//		return cmd.ExecuteNonQuery();//傳回被異動的筆數
 			//	}
 			//}
+		}
+		public IEnumerable<NewsInfo> Search(string title, string description)
+		{
+			#region 生成sql statement
+			string sql = $@"Select * from {_tableName}";
 
+			string where = string.Empty;
+
+			var parameters = new List<SqlParameter>();
+
+			if (string.IsNullOrEmpty(title) == false)
+			{
+				where += $" And Title like '%' + @Title + '%'";
+				parameters.Add(new SqlParameter("@Title", System.Data.SqlDbType.NVarChar, 50) { Value = title });
+			}
+
+			if (string.IsNullOrEmpty(description) == false)
+			{
+				where += $" And Description like '%' + @Description + '%'";
+				parameters.Add(new SqlParameter("@Description", System.Data.SqlDbType.NVarChar, 50) { Value = description });
+			}
+
+			where = where == string.Empty ? where : where = " where " + where.Substring(5);
+			sql += where;
+			#endregion
+
+			return SqlDb.Search(funcConn, funcAssembler, sql, parameters.ToArray());
 		}
 	}
-	public class News
+	public class NewsInfo
 	{
 		public int Id { get; set; }
 		public string Title { get; set; }
@@ -127,9 +156,9 @@ where Id = @Id";
 		public DateTime CreatedTime { get; set; }
 		public DateTime ModifiedTime { get; set; }
 
-		internal static News GetInstance(SqlDataReader reader)
+		internal static NewsInfo GetInstance(SqlDataReader reader)
 		{
-			var news = new News();
+			var news = new NewsInfo();
 			news.Id = reader.GetFieldValue<int>("Id");
 			news.Title = reader.GetFieldValue<string>("Title");
 			news.Description = reader.GetFieldValue<string>("Description");

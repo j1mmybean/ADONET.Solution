@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace ISpan.EStore.WinApp
 {
-    public class SqlDb
+	public interface IGridContainer
+	{
+		void Display();
+	}
+
+	public class SqlDb
     {
         public static string ApplicationName { get; set; }
         public static int ConnectionTimeout { get; set; } //def = 0
@@ -53,7 +58,6 @@ namespace ISpan.EStore.WinApp
                     return cmd.ExecuteNonQuery();//傳回被異動的筆數
                 }
             }
-
         }
 
         public static int Create(Func<SqlConnection> funcConnection, string sql, params SqlParameter[] parameters)
@@ -92,8 +96,6 @@ namespace ISpan.EStore.WinApp
 
 		public static IEnumerable<T> Search<T>(Func<SqlConnection> funcConnection, Func<SqlDataReader, T> funcAssembler, string sql, params SqlParameter[] parameters)
 		{
-			SqlDb.ApplicationName = "demo:search products";//方便sql profiler查看
-
 			using (var conn = funcConnection())
 			{
 				using (var cmd = conn.CreateCommand())
