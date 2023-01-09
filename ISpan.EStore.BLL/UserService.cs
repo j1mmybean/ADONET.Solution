@@ -1,4 +1,5 @@
-﻿using ISpan.EStore.BLL.DTOs;
+﻿using ISpan.EStore.BLL.Core;
+using ISpan.EStore.BLL.DTOs;
 using ISpan.EStore.BLL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace ISpan.EStore.BLL
 
 		public int Create(UserCreateDto dto)
 		{
-			var entity = dto.ToEntity();
+			var entity = dto.CreateToEntity();
 
 			// 驗證Account 是否唯一
 			var entityInDb = repo.GetByAccount(entity.Account);
@@ -27,6 +28,14 @@ namespace ISpan.EStore.BLL
 
 			//若通過,建檔
 			return repo.Create(entity);
+		}
+
+		public int Update(UserUpdateDto dto, UserEntity entity)
+		{
+			var updateEntity = dto.UpdateToEntity(entity);
+
+			//若通過,建檔
+			return repo.Update(updateEntity);
 		}
 	}
 }

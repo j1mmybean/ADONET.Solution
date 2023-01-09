@@ -128,24 +128,5 @@ namespace ISpan.EStore.SqlDataLayer
 
 			this.DialogResult = DialogResult.OK;
 		}
-		//private void buttonSave_Click(object sender, EventArgs e)
-		//{
-		//	//
-		//	var vm = GetModel();
-
-		//	try
-		//	{
-		//	new UserRepository().Create(GetModel());
-		//	}catch(Exception ex)
-		//	{
-		//		MessageBox.Show("新增失敗\n" + ex.Message);
-		//	}
-
-		//	IGridContainer container = this.Owner as IGridContainer;
-		//	if (container != null) container.Display();
-
-		//	this.DialogResult = DialogResult.OK;
-		//}
-
 	}
 }

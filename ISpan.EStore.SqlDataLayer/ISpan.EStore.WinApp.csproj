@@ -115,6 +115,12 @@
     <Compile Include="Products\FormProducts.Designer.cs">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\FormEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FormEditUser.Designer.cs">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\FormUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Products\FormProducts.resx">
       <DependentUpon>FormProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FormEditUser.resx">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>

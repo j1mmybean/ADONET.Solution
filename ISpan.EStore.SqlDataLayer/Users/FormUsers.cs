@@ -56,12 +56,12 @@ namespace ISpan.EStore.SqlDataLayer
 
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			//if(e.RowIndex < 0)	return;
+			if (e.RowIndex < 0) return;
 
-			//int userId = _users[e.RowIndex].Id;
-			//FormEditUser formEditUser = new FormEditUser(userId);
-			//formEditUser.Owner = this;
-			//formEditUser.ShowDialog();
+			int userId = _users[e.RowIndex].Id;
+			FormEditUser formEditUser = new FormEditUser(userId);
+			formEditUser.Owner = this;
+			formEditUser.ShowDialog();
 		}
 	}
 }

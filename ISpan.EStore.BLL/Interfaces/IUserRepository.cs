@@ -12,6 +12,6 @@ namespace ISpan.EStore.BLL.Interfaces
 		int Create(UserEntity entity);
 
 		UserEntity GetByAccount(string Account);
-
+		int Update(UserEntity entity);
 	}
 }

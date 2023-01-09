@@ -11,19 +11,15 @@ namespace ISpan.EStore.BLL.DTOs
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public string Account { get; set; }
-		public string Password { get; set; }
 		public DateTime? DateOfBirth { get; set; }
 		public int? Height { get; set; }
 		public string Email { get; set; }
-
 	}
-
-	public static class UserCreateDtoExtensions
+	public static class UserUpdateDtoExtensions
 	{
-		public static UserEntity ToEntity(this UserCreateDto dto)
+		public static UserEntity UpdateToEntity(this UserUpdateDto dto, UserEntity entity)
 		{
-			return new UserEntity(dto.Name, dto.Account, dto.Password)
+			return new UserEntity(dto.Name, entity.Account, entity.Password)
 			{
 				DateOfBirth = dto.DateOfBirth,
 				Height = dto.Height,
@@ -31,4 +27,5 @@ namespace ISpan.EStore.BLL.DTOs
 			};
 		}
 	}
+
 }
