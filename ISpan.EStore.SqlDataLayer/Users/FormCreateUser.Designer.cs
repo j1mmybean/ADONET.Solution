@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.textBoxAccount = new System.Windows.Forms.TextBox();
 			this.labelAccount = new System.Windows.Forms.Label();
 			this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -41,6 +42,10 @@
 			this.textBoxHeight = new System.Windows.Forms.TextBox();
 			this.labelHeight = new System.Windows.Forms.Label();
 			this.buttonSave = new System.Windows.Forms.Button();
+			this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
+			this.labelConfirmPassword = new System.Windows.Forms.Label();
+			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBoxAccount
@@ -53,7 +58,7 @@
 			// labelAccount
 			// 
 			this.labelAccount.AutoSize = true;
-			this.labelAccount.Location = new System.Drawing.Point(72, 65);
+			this.labelAccount.Location = new System.Drawing.Point(47, 65);
 			this.labelAccount.Name = "labelAccount";
 			this.labelAccount.Size = new System.Drawing.Size(58, 15);
 			this.labelAccount.TabIndex = 1;
@@ -69,7 +74,7 @@
 			// labelPassword
 			// 
 			this.labelPassword.AutoSize = true;
-			this.labelPassword.Location = new System.Drawing.Point(72, 96);
+			this.labelPassword.Location = new System.Drawing.Point(47, 96);
 			this.labelPassword.Name = "labelPassword";
 			this.labelPassword.Size = new System.Drawing.Size(64, 15);
 			this.labelPassword.TabIndex = 1;
@@ -77,7 +82,7 @@
 			// 
 			// textBoxName
 			// 
-			this.textBoxName.Location = new System.Drawing.Point(169, 117);
+			this.textBoxName.Location = new System.Drawing.Point(169, 148);
 			this.textBoxName.Name = "textBoxName";
 			this.textBoxName.Size = new System.Drawing.Size(261, 25);
 			this.textBoxName.TabIndex = 0;
@@ -85,7 +90,7 @@
 			// labelName
 			// 
 			this.labelName.AutoSize = true;
-			this.labelName.Location = new System.Drawing.Point(72, 127);
+			this.labelName.Location = new System.Drawing.Point(47, 158);
 			this.labelName.Name = "labelName";
 			this.labelName.Size = new System.Drawing.Size(44, 15);
 			this.labelName.TabIndex = 1;
@@ -93,7 +98,7 @@
 			// 
 			// textBoxEmail
 			// 
-			this.textBoxEmail.Location = new System.Drawing.Point(169, 148);
+			this.textBoxEmail.Location = new System.Drawing.Point(169, 179);
 			this.textBoxEmail.Name = "textBoxEmail";
 			this.textBoxEmail.Size = new System.Drawing.Size(261, 25);
 			this.textBoxEmail.TabIndex = 0;
@@ -101,7 +106,7 @@
 			// labelEmail
 			// 
 			this.labelEmail.AutoSize = true;
-			this.labelEmail.Location = new System.Drawing.Point(72, 158);
+			this.labelEmail.Location = new System.Drawing.Point(47, 189);
 			this.labelEmail.Name = "labelEmail";
 			this.labelEmail.Size = new System.Drawing.Size(45, 15);
 			this.labelEmail.TabIndex = 1;
@@ -109,7 +114,7 @@
 			// 
 			// textBoxDateOfBirth
 			// 
-			this.textBoxDateOfBirth.Location = new System.Drawing.Point(169, 179);
+			this.textBoxDateOfBirth.Location = new System.Drawing.Point(169, 210);
 			this.textBoxDateOfBirth.Name = "textBoxDateOfBirth";
 			this.textBoxDateOfBirth.Size = new System.Drawing.Size(261, 25);
 			this.textBoxDateOfBirth.TabIndex = 0;
@@ -117,7 +122,7 @@
 			// labelDateOfBirth
 			// 
 			this.labelDateOfBirth.AutoSize = true;
-			this.labelDateOfBirth.Location = new System.Drawing.Point(72, 189);
+			this.labelDateOfBirth.Location = new System.Drawing.Point(47, 220);
 			this.labelDateOfBirth.Name = "labelDateOfBirth";
 			this.labelDateOfBirth.Size = new System.Drawing.Size(86, 15);
 			this.labelDateOfBirth.TabIndex = 1;
@@ -125,7 +130,7 @@
 			// 
 			// textBoxHeight
 			// 
-			this.textBoxHeight.Location = new System.Drawing.Point(169, 210);
+			this.textBoxHeight.Location = new System.Drawing.Point(169, 241);
 			this.textBoxHeight.Name = "textBoxHeight";
 			this.textBoxHeight.Size = new System.Drawing.Size(261, 25);
 			this.textBoxHeight.TabIndex = 0;
@@ -133,7 +138,7 @@
 			// labelHeight
 			// 
 			this.labelHeight.AutoSize = true;
-			this.labelHeight.Location = new System.Drawing.Point(72, 220);
+			this.labelHeight.Location = new System.Drawing.Point(47, 251);
 			this.labelHeight.Name = "labelHeight";
 			this.labelHeight.Size = new System.Drawing.Size(49, 15);
 			this.labelHeight.TabIndex = 1;
@@ -141,7 +146,7 @@
 			// 
 			// buttonSave
 			// 
-			this.buttonSave.Location = new System.Drawing.Point(357, 251);
+			this.buttonSave.Location = new System.Drawing.Point(357, 282);
 			this.buttonSave.Name = "buttonSave";
 			this.buttonSave.Size = new System.Drawing.Size(73, 33);
 			this.buttonSave.TabIndex = 2;
@@ -149,26 +154,49 @@
 			this.buttonSave.UseVisualStyleBackColor = true;
 			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 			// 
+			// textBoxConfirmPassword
+			// 
+			this.textBoxConfirmPassword.Location = new System.Drawing.Point(169, 117);
+			this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
+			this.textBoxConfirmPassword.Size = new System.Drawing.Size(261, 25);
+			this.textBoxConfirmPassword.TabIndex = 0;
+			// 
+			// labelConfirmPassword
+			// 
+			this.labelConfirmPassword.AutoSize = true;
+			this.labelConfirmPassword.Location = new System.Drawing.Point(47, 127);
+			this.labelConfirmPassword.Name = "labelConfirmPassword";
+			this.labelConfirmPassword.Size = new System.Drawing.Size(116, 15);
+			this.labelConfirmPassword.TabIndex = 1;
+			this.labelConfirmPassword.Text = "Confirm Password:";
+			// 
+			// errorProvider1
+			// 
+			this.errorProvider1.ContainerControl = this;
+			// 
 			// FormCreateUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(537, 317);
+			this.ClientSize = new System.Drawing.Size(537, 399);
 			this.Controls.Add(this.buttonSave);
 			this.Controls.Add(this.labelHeight);
 			this.Controls.Add(this.labelDateOfBirth);
 			this.Controls.Add(this.labelEmail);
 			this.Controls.Add(this.labelName);
+			this.Controls.Add(this.labelConfirmPassword);
 			this.Controls.Add(this.labelPassword);
 			this.Controls.Add(this.labelAccount);
 			this.Controls.Add(this.textBoxHeight);
 			this.Controls.Add(this.textBoxDateOfBirth);
 			this.Controls.Add(this.textBoxEmail);
 			this.Controls.Add(this.textBoxName);
+			this.Controls.Add(this.textBoxConfirmPassword);
 			this.Controls.Add(this.textBoxPassword);
 			this.Controls.Add(this.textBoxAccount);
 			this.Name = "FormCreateUser";
 			this.Text = "FormCreateUser";
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -189,5 +217,8 @@
 		private System.Windows.Forms.TextBox textBoxHeight;
 		private System.Windows.Forms.Label labelHeight;
 		private System.Windows.Forms.Button buttonSave;
+		private System.Windows.Forms.TextBox textBoxConfirmPassword;
+		private System.Windows.Forms.Label labelConfirmPassword;
+		private System.Windows.Forms.ErrorProvider errorProvider1;
 	}
 }
