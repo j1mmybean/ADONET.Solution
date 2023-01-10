@@ -143,7 +143,12 @@ where Id = {entity.Id} ";
 			string sql = $"SELECT * FROM {_tableName} WHERE Account = @Account";
 			SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@Account", System.Data.SqlDbType.NVarChar, 50) {Value = account } };
 
-			return SqlDb.Get(funcConn, funcAssembler, sql);
+			return SqlDb.Get(funcConn, funcAssembler, sql, parameters);
+		}
+
+		public UserEntity GetByUserId(int userId)
+		{
+			throw new NotImplementedException();
 		}
 	}
 

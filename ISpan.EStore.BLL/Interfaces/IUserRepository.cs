@@ -13,5 +13,6 @@ namespace ISpan.EStore.BLL.Interfaces
 
 		UserEntity GetByAccount(string Account);
 		int Update(UserEntity entity);
+		UserEntity GetByUserId(int userId);
 	}
 }

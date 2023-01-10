@@ -28,7 +28,5 @@ namespace ISpan.EStore.BLL.Core
 			this.Account = account;
 			this.Password = password;
 		}
-
 	}
-
 }
