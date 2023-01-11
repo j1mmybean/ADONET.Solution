@@ -28,7 +28,7 @@ namespace ISpan.EStore.SqlDataLayer
 
 		private void FormEditUser_Load(object sender, EventArgs e)
 		{
-			var user = new UserRepository().GetUser(userId);
+			var user = new UserRepository().GetByUserId(userId);
 			BindForm(user);
 		}
 
@@ -38,7 +38,7 @@ namespace ISpan.EStore.SqlDataLayer
 			textBoxEmail.Text = user.Email;
 			textBoxDateOfBirth.Text = user.DateOfBirth.HasValue
 				?user.DateOfBirth.Value.ToString("yyyy/MM/dd")
-				:string.Empty;			
+				:string.Empty;
 			textBoxHeight.Text = user.Height.HasValue
 				?user.Height.Value.ToString()
 				:String.Empty;
@@ -85,7 +85,6 @@ namespace ISpan.EStore.SqlDataLayer
 				{"Email", textBoxEmail},
 				{"DateOfBirth", textBoxDateOfBirth},
 				{"Height", textBoxHeight}
-
 			};
 
 			this.errorProvider1.Clear();
@@ -125,7 +124,7 @@ namespace ISpan.EStore.SqlDataLayer
 
 			try
 			{
-				var entity = new UserRepository().GetUser(userId);
+				var entity = new UserRepository().GetByUserId(userId);
 
 				service.Update(dto, entity);
 			}

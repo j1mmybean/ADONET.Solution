@@ -17,10 +17,11 @@ namespace ISpan.EStore.BLL.DTOs
 	}
 	public static class UserUpdateDtoExtensions
 	{
-		public static UserEntity UpdateToEntity(this UserUpdateDto dto, UserEntity entity)
+		public static UserEntity ToUpdateEntity(this UserUpdateDto dto, string account, string password)
 		{
-			return new UserEntity(dto.Name, entity.Account, entity.Password)
+			return new UserEntity(dto.Name, account, password)
 			{
+				Id = dto.Id,
 				DateOfBirth = dto.DateOfBirth,
 				Height = dto.Height,
 				Email = dto.Email,

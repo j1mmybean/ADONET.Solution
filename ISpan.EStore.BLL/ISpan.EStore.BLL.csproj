@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Core\UserEntity.cs" />
     <Compile Include="DTOs\UserCreateDto.cs" />
+    <Compile Include="DTOs\UserEditDto.cs" />
     <Compile Include="DTOs\UserUpdateDto.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -20,7 +20,7 @@ namespace ISpan.EStore.BLL
 
 		public int Create(UserCreateDto dto)
 		{
-			var entity = dto.CreateToEntity();
+			var entity = dto.ToCreateEntity();
 
 			// 驗證Account 是否唯一
 			var entityInDb = repo.GetByAccount(entity.Account);
@@ -41,7 +41,12 @@ namespace ISpan.EStore.BLL
 
 		public int Update(UserUpdateDto dto, UserEntity entity)
 		{
-			var updateEntity = dto.UpdateToEntity(entity);
+			string account = entity.Account;
+			string password = entity.Password;
+
+			var updateEntity = dto.ToUpdateEntity(account, password);
+
+			var entityInDb = repo.GetByUserId(entity.Id);
 
 			//若通過,建檔
 			return repo.Update(updateEntity);

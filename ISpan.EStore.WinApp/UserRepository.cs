@@ -131,13 +131,6 @@ where Id = {entity.Id} ";
 			return SqlDb.Search(funcConn, funcAssembler, sql, parameters.ToArray());
 		}
 
-		public UserEntity GetUser(int userId)
-		{
-			string sql = $"SELECT * FROM {_tableName} WHERE Id = {userId}";
-
-			return SqlDb.Get(funcConn, funcAssembler, sql);
-		}
-
 		public UserEntity GetByAccount(string account)
 		{
 			string sql = $"SELECT * FROM {_tableName} WHERE Account = @Account";
@@ -148,7 +141,9 @@ where Id = {entity.Id} ";
 
 		public UserEntity GetByUserId(int userId)
 		{
-			throw new NotImplementedException();
+			string sql = $"SELECT * FROM {_tableName} WHERE Id = {userId}";
+
+			return SqlDb.Get(funcConn, funcAssembler, sql);
 		}
 	}
 
