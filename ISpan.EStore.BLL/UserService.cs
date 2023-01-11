@@ -29,15 +29,6 @@ namespace ISpan.EStore.BLL
 			//若通過,建檔
 			return repo.Create(entity);
 		}
-		//public int Get(int userId)
-		//{
-		//	var entity = GetUser(int userId);
-
-		//	// 驗證Account 是否唯一
-		//	var entityInDb = repo.GetByAccount(entity.Account);
-		//	if (entityInDb != null) throw new Exception("帳號已存在");
-
-		//}
 
 		public int Update(UserUpdateDto dto, UserEntity entity)
 		{
@@ -51,5 +42,11 @@ namespace ISpan.EStore.BLL
 			//若通過,建檔
 			return repo.Update(updateEntity);
 		}
+		public UserEditDto GetUser(int userId)
+		{
+			var entity = repo.GetByUserId(userId);
+			return entity.ToEditDto();
+		}
+
 	}
 }

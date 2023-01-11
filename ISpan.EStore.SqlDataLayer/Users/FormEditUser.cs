@@ -13,34 +13,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ISpan.EStore.BLL.Core;
+using ISpan.EStore.BLL.DTOs;
 
 namespace ISpan.EStore.SqlDataLayer
 {
 	public partial class FormEditUser : Form
 	{
 		private readonly int userId;
+		private UserService service;
+
 		public FormEditUser(int userId)
 		{
 			InitializeComponent();
+
+			IUserRepository repo = new UserRepository();
+			service = new UserService(repo);
+
 			this.userId = userId;
 			this.Load += FormEditUser_Load;
 		}
 
 		private void FormEditUser_Load(object sender, EventArgs e)
 		{
-			var user = new UserRepository().GetByUserId(userId);
+			UserEditDto user = service.GetUser(userId);
+
 			BindForm(user);
 		}
 
-		private void BindForm(UserEntity user)
+		private void BindForm(UserEditDto dto)
 		{
-			textBoxName.Text = user.Name;
-			textBoxEmail.Text = user.Email;
-			textBoxDateOfBirth.Text = user.DateOfBirth.HasValue
-				?user.DateOfBirth.Value.ToString("yyyy/MM/dd")
+			textBoxName.Text = dto.Name;
+			textBoxEmail.Text = dto.Email;
+			textBoxDateOfBirth.Text = dto.DateOfBirth.HasValue
+				?dto.DateOfBirth.Value.ToString("yyyy/MM/dd")
 				:string.Empty;
-			textBoxHeight.Text = user.Height.HasValue
-				?user.Height.Value.ToString()
+			textBoxHeight.Text = dto.Height.HasValue
+				?dto.Height.Value.ToString()
 				:String.Empty;
 		}
 		private DateTime? DateOfBirth
